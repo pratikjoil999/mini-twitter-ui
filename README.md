@@ -73,7 +73,9 @@ npm start
 
 2. **Dashboard** Component : This Component is basically home page of mini twitter , this page basically show all the tweets enter by user and tweet by person he/she follows. User can aslo search user follow them and able to tweet aslo. This Component is the Child Component of *Customers* Component.
 
-3. **Tweet Table** Component : This Component is use to disply all the user tweets. This Component is the Child Component of *Dashboard* Component.
+3. **Tweet Search** Component : This Component is use to search the tweet of users
+
+4. **Tweet Table** Component : This Component is use to disply all the user tweets. This Component is the Child Component of *Dashboard and Tweet Search* Component.
 
 #### HTTP client
 
