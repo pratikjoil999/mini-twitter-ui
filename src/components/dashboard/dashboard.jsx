@@ -244,7 +244,7 @@ dataService("twitter_user/follow", followingArray).then((result) => {
   }
 
   logout(){
-    localStorage.setItem("X-Auth-Token",'');
+    localStorage.removeItem("X-Auth-Token");
     localStorage.clear();
     //this.setState({redirect: true});
   }
