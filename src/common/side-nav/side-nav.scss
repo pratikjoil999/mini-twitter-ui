@@ -1,0 +1,68 @@
+@import "../../variables.scss";
+@import "../../mixins.scss";
+
+.side-nav .nav{
+    position: fixed;
+    height: 100%;
+    width: 15%;
+    background-color:$theme-blue ;
+    box-shadow: 2px 0px 5px rgba(0,0,0,0.5);
+    z-index: 2;
+}
+
+.side-nav .nav .nav_item{
+    width: 100%;
+}
+.nav_item ul {
+    margin-top:50%;
+    list-style: none;
+   // background: red;
+    padding: 0;
+  
+}
+
+.nav_item ul li{
+    padding: 15px;
+    padding-left: 35px;
+   // border-left: solid 5px black;
+    color : $white;
+    font-weight : 600;
+}
+
+.nav_item {
+    margin: 5px 0px;
+    position: relative;
+  
+    ul li {
+      border-left: 7px solid transparent;
+      &.active {
+        border-left: 7px solid $theme-orange;
+       // background: $nav-select-blue;
+        color: $theme-white !important;
+      }
+    }
+    
+  }
+  .nav_item .nav-pills .active {
+    color :red
+ }
+ 
+ .logoutButton{
+   cursor: pointer;
+ }
+
+ul li {
+  &:hover {
+    border-left: 7px solid $theme-orange;
+ background-color: $nav-hover-blue;
+ //background-color: rgba($color: $white, $alpha: 0.10);
+}
+ }
+
+ .selected{
+ li{
+  border-left: 7px solid $theme-orange !important;
+  background-color: $nav-hover-blue;
+ }
+ }
+

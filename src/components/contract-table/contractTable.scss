@@ -1,0 +1,244 @@
+@import "../../variables.scss";
+@import "../../mixins.scss";
+.btn {
+  &:focus,
+  &:active {
+    outline: none !important;
+    // border: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+  }
+}
+
+table {
+  table-layout: fixed;
+  width: 100%;
+  font-size: 14px !important;
+  overflow: scroll;
+  @media (max-width: 768px) {
+    font-size: 10px !important;
+    table-layout: inherit;
+  }
+}
+.tableContainer{
+  overflow-x: auto;
+
+}
+.border-none {
+  border: none;
+  width: 100%;
+}
+.table-drop-menu {
+  background-color: $white;
+  border: none;
+  color: $select-gray;
+  font-family: inherit;
+  font-size: inherit;
+}
+.border-data-none {
+  border: none;
+}
+
+/*
+    Max width before this PARTICULAR table gets nasty. This query will take effect for any screen smaller than 760px and also iPads specifically.
+    */
+// @media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px) {
+//   #rt1 {
+//     display: block;
+//     position: relative;
+//     width: 100%;
+//   }
+
+//   .rt {
+//     width: 100%;
+//     font-size: 0.75em;
+//     line-height: 1.25em;
+//     border-collapse: collapse;
+//     border-spacing: 0;
+//   }
+
+//   #rt1 thead {
+//     display: block;
+//     float: left;
+//   }
+//   #rt1 thead tr {
+//     display: block;
+//   }
+
+//   #rt1 th {
+//     display: block;
+//     width: auto;
+//     font-size: 10px;
+//     padding: 0.81rem 0.75rem;
+//   }
+//   .rt th {
+//     text-align: left;
+//     // background: #fff2b2;
+//   }
+
+//   #rt1 .thead-row-2 {
+//     display: none !important;
+//   }
+//   #rt1 tbody {
+//     display: block;
+//     width: auto;
+//     position: relative;
+//     overflow-x: auto;
+//     white-space: nowrap;
+//   }
+//   #rt1 tbody tr {
+//     display: inline-block;
+//     vertical-align: top;
+//   }
+//   #rt1 td {
+//     display: block;
+//     padding: 0.88rem 0.75rem;
+//     min-height: 1.25em;
+//   }
+// }
+.tableRow {
+  background-color: $kotak-text-blue;
+  th {
+    &:not(:first-child) {
+      text-align: center;
+    }
+  }
+}
+
+.table-striped tbody tr {
+  &:nth-of-type(odd) {
+    background-color: $table-stripe !important;
+  }
+
+  &:hover {
+    // cursor: pointer;
+    background-color: darken($table-blue, 5%) !important;
+    transition: background-color 300ms;
+  }
+  // &:focus{
+  //   color: $white !important;
+  //   background-color: $theme-orange !important;
+  // }
+  // &:active{
+  //   background-color: $theme-orange !important;
+  //   td{
+  //     color: white !important;
+  //   }
+  // }
+
+  td {
+    &:last-child {
+      text-align: center;
+    }
+    &:not(:first-child) {
+      color: $table-td-color;
+      &:hover {
+        cursor: pointer;
+        // background-color: darken($table-stripe, 20%);
+        // transition: background-color 600ms;
+      }
+    }
+  }
+}
+
+.word-break-keep {
+  word-break: keep-all !important;
+  font-size: 1rem;
+  min-height: 50px;
+  @media (max-width: 768px) {
+    font-size: .8rem;
+  }
+}
+
+h6 {
+  color: $theme-black;
+}
+
+.all-clear-box {
+  min-width: 2rem;
+  max-width: 5rem;
+  padding: 0.2rem;
+  background-color: $theme-light-orange;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  color: $white;
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    background-color: darken($theme-light-orange, 15%);
+    transition: background-color 600ms;
+  }
+  &:active {
+    transform: scale(0.96);
+    transition: transform 200ms;
+  }
+}
+
+td {
+  &:not(:first-child) {
+    color: $table-td-color;
+    text-align: center;
+    &:hover {
+      cursor: pointer;
+      // background-color: darken($table-stripe, 20%);
+      // transition: background-color 600ms;
+    }
+  }
+  // &:last-child {
+  //   text-align: center;
+  // }
+}
+
+.triple-dot {
+  position: absolute;
+  transform: translate(-7px, 0px);
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    color: $white;
+    transition: color 200ms;
+  }
+}
+
+.dropdown-menu {
+  min-width: 2rem !important;
+  a {
+    color: $theme-black;
+    &:active {
+      color: $theme-black;
+      background-color: $dd-white;
+    }
+  }
+}
+
+.dropdown-item {
+  padding: 0.5rem 1rem;
+  min-width: 3rem;
+}
+
+.mainContainer ,.responsiveTableUniversal{
+  @include universal {
+   padding: 0;
+  }
+  @include iPhoneSE{
+    padding: 0;
+  }
+  @include device-s5{
+    padding: 0;
+  }
+}
+
+.mobile-alignment-button{
+  @include universal{
+  float: none !important;
+  }
+}
+
+
+.button-alignment{
+  @include universal{
+  padding-left: 0.5rem;
+  }
+}
+

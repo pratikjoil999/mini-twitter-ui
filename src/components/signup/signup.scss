@@ -1,0 +1,181 @@
+@import "../../variables.scss";
+@import "../../mixins.scss";
+
+.signup-page .account-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.signup-page .login-logo {
+  text-align: center;
+  margin-top: 15px;
+  h1 {
+    letter-spacing: 5px;
+    margin-bottom: 20px;
+  }
+  p {
+    color: rgba($color: $text-gray, $alpha: 0.5);
+    margin-bottom: 20px;
+  }
+}
+
+.signup-page .page-wrapper .content {
+  padding: 30px;
+  background: $white 0% 0% no-repeat padding-box;
+  box-shadow: 0px 2px 6px $table-shadow;
+  opacity: 1;
+}
+
+.signup-page .account-box {
+  display: flex;
+  width: 100%;
+  .bg-img {
+    background: url(../../assets/pattern.svg);
+    min-height: 100vh;
+    width: 50%;
+    background-size: cover;
+    @include device-sm {
+      display: none;
+    }
+    @include universal {
+      display: none;
+    }
+    @include tablet {
+      display: none;
+    }
+    @include ipad-pro-Portrait {
+      display: none;
+    }
+  }
+}
+.signup-page .account-wrapper {
+  width: 50%;
+  background-color: $white;
+  padding: 30px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  @include device-sm {
+    width: 100%;
+  }
+  @include universal {
+    width: 100%;
+    padding: 0px;
+  }
+  @include tablet {
+    width: 100%;
+    padding: 0px;
+  }
+  @include ipad-pro-Portrait {
+    width: 100%;
+    padding: 0px;
+  }
+}
+.signup-page .account-logo {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.signup-page .account-box .form-group {
+  margin-bottom: 35px;
+  margin: 30px auto;
+  width: 70%;
+  @include device-sm {
+    margin: 30px auto;
+    width: 70%;
+  }
+  @include universal {
+    margin: 30px auto;
+    width: 80%;
+  }
+  @include iPhoneSE {
+    margin: 30px auto;
+  }
+  @include tablet {
+    margin: 30px auto;
+  }
+}
+
+::ng-deep {
+  .mat-checkbox-frame {
+    border-color: $theme-black;
+  }
+  .mat-checkbox-checked.mat-accent .mat-checkbox-background,
+  .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+    background-color: $theme-black;
+  }
+}
+
+::ng-deep {
+  .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+    border-color: $theme-black;
+  }
+  .mat-radio-button.mat-accent .mat-radio-inner-circle {
+    background-color: $theme-black;
+  }
+}
+
+.signup-page .account-box .account-btn {
+  background: $button-purple;
+  border-radius: 5px;
+  padding: 10px 10px;
+  border: 0;
+  width: 30%;
+  color: $white;
+}
+.signup-page .account-box a {
+  color: $blue-grey-900;
+  font-size: 16px;
+}
+.signup-page .account-box .form-control {
+  background-color: $white;
+  width: 100%;
+  border: none;
+  box-shadow: none;
+  border-bottom: 1px $theme-border-black solid;
+  &::placeholder {
+    font-family: "Source Sans Pro";
+    color: $theme-black;
+    font-size: 16px;
+  }
+}
+.signup-page .account-logo img {
+  width: 100px;
+}
+
+.signup-page .login-footer {
+  text-align: center;
+  margin-top: 15px;
+  h1 {
+    margin-bottom: 20px;
+    text-decoration: underline;
+  }
+  p {
+    margin-bottom: 20px;
+  }
+}
+
+.signup-page .check-class {
+  border: 0;
+}
+
+.signup-page .radio-class p {
+  margin-left: 10px;
+}
+
+.signup-page .name-class {
+  @include universal {
+    margin-bottom: 30px;
+  }
+}
+
+.signup-page .invalid-feedback {
+  margin-left: 12px;
+}
+
+.signup-page .checkBorder .form-control{
+  border:0px;
+}

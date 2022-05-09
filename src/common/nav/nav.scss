@@ -1,0 +1,11 @@
+@import "../../variables.scss";
+@import "../../mixins.scss";
+
+.navBar{
+    position: fixed;
+    width: 100%;
+    background-color:$white ;
+    padding: 30px;;
+    border-bottom:2px solid $de-white;
+   z-index: 1;
+}

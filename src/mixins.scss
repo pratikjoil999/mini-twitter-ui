@@ -1,0 +1,342 @@
+/* Mixins for media query */
+
+$tablet-width: 768px;
+$desktop-width: 1024px;
+$xxl-width: 1920px;
+$xll-width: 1800px;
+$xls-width: 1500px;
+$xl-width: 1400px;
+$xlb-width: 1310px;
+$lg-width: 1200px;
+$md-width: 991px;
+$sm-width: 767px;
+$xs-width: 575px;
+$xss-width: 390px;
+$xsss-width: 320px;
+$xsss-width-minus: 319px;
+$s5-width: 360px;
+$iP678-width: 375px;
+
+@mixin device-xl-min {
+  @media (min-width: #{$xl-width}) {
+    @content;
+  }
+}
+@mixin device-xxl-min {
+  @media (min-width: #{$xxl-width}) {
+    @content;
+  }
+}
+@mixin device-xll {
+  @media (max-width: #{$xll-width}) {
+    @content;
+  }
+}
+@mixin device-xls {
+  @media (max-width: #{$xls-width}) {
+    @content;
+  }
+}
+@mixin device-xl {
+  @media (max-width: #{$xl-width}) {
+    @content;
+  }
+}
+@mixin device-lgb {
+  @media (max-width: #{$xlb-width}) {
+    @content;
+  }
+}
+@mixin device-lg {
+  @media (max-width: #{$lg-width}) {
+    @content;
+  }
+}
+@mixin device-md {
+  @media (max-width: #{$md-width}) {
+    @content;
+  }
+}
+@mixin device-sm {
+  @media (max-width: #{$sm-width}) {
+    @content;
+  }
+}
+@mixin device-xs {
+  @media (max-width: #{$xs-width}) {
+    @content;
+  }
+}
+@mixin device-xss {
+  @media (max-width: #{$xss-width}) {
+    @content;
+  }
+}
+@mixin universal {
+  @media only screen and (max-width: #{$xs-width}) and (min-width: #{$xsss-width-minus}) {
+    @content;
+  }
+}
+@mixin iPhoneSE {
+  @media (max-width: #{$xsss-width}) {
+    @content;
+  }
+}
+@mixin device-s5 {
+  @media (max-width: #{$s5-width}) {
+    @content;
+  }
+}
+@mixin device-iP678 {
+  @media (max-width: #{$iP678-width}) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+/* Landscape*/
+@mixin ipad-pro-Landscape {
+@media only screen and (min-device-width: 1366px) and (max-device-height: 1024px) and (-webkit-min-device-pixel-ratio: 2)  and (orientation: landscape)  {
+  @content;
+}
+  
+}
+
+@mixin iphone-plus {
+  @media only screen and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) {
+    @content;
+  }
+}
+
+@mixin ipad-Landscape {
+  @media only screen and (min-device-width: 1024px) and (max-device-height: 768px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+    @content;
+  }
+}
+
+/* Portrait*/
+@mixin ipad-pro-Portrait {
+@media only screen and (min-device-width: 1024px) and (max-device-height: 1366px) and (-webkit-min-device-pixel-ratio: 2)  and (orientation: portrait)  {
+  @content;
+}
+}
+
+@mixin ipad-Portrait {
+  @media only screen and (min-device-width: 768px) and (max-device-height: 1024px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (max-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+@mixin retina {
+  @media only screen and (-webkit-min-device-pixel-ratio: 2),
+    only screen and (min--moz-device-pixel-ratio: 2),
+    only screen and (-o-min-device-pixel-ratio: 2/1),
+    only screen and (min-device-pixel-ratio: 2),
+    only screen and (min-resolution: 192dpi),
+    only screen and (min-resolution: 2dppx) {
+    @content;
+  }
+}
+
+@mixin print {
+  @media print {
+    @content;
+  }
+}
+
+/* End Mixins for media query */
+
+/* Border radius */
+@mixin border-radius($radius) {
+  border-radius: $radius;
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -o-border-radius: $radius;
+  -ms-border-radius: $radius;
+}
+/* gtadient */
+@mixin gradient($from, $to) {
+  background: -webkit-gradient(linear, left top, left bottom, from($from), to($to));
+  background: -moz-linear-gradient(top, $from, $to);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$from}', endColorstr='#{$to}');
+}
+
+@mixin box-shadow($value) {
+  box-shadow: $value;
+  -webkit-box-shadow: $value;
+  -moz-box-shadow: $value;
+  -o-box-shadow: $value;
+  -ms-box-shadow: $value;
+}
+/* opacity mixin */
+@mixin opacity($opacity) {
+  $opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha($opacity = $opacity-ie); //IE8
+}
+
+/* transform mixin */
+@mixin transform($tf) {
+  transform: ($tf);
+  -webkit-transform: ($tf);
+  -moz-transform: ($tf);
+  -o-transform: ($tf);
+}
+/* transition mixin */
+@mixin transition($ts) {
+  transition: $ts;
+  -webkit-transition: $ts;
+  -moz-transition: $ts;
+  -ms-transition: $ts;
+  -o-transition: $ts;
+}
+/* Box sizing mixin */
+@mixin box-sizing {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+}
+/* grayscale mixin */
+@mixin grayscale($gs) {
+  filter: grayscale($gs);
+  -webkit-filter: grayscale($gs);
+  -moz-filter: grayscale($gs);
+  -o-filter: grayscale($gs);
+}
+
+/* text-shadow mixin */
+@mixin text-shadow($tsh) {
+  text-shadow: $tsh;
+  -webkit-text-shadow: $tsh;
+  -moz-text-shadow: $tsh;
+  -ms-text-shadow: $tsh;
+  -o-text-shadow: $tsh;
+}
+/*user-select mixin */
+@mixin user-select($tsh) {
+  user-select: $tsh;
+  -webkit-user-select: $tsh;
+  -moz-user-select: $tsh;
+  -ms-user-select: $tsh;
+  -o-user-select: $tsh;
+}
+
+/* image center align positition */
+@mixin img-center-fix {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  max-width: 100%;
+  max-height: 100%;
+}
+/* image full positition */
+@mixin img-full {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+}
+/* image center auto positition */
+@mixin img-center-auto {
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Division full width */
+@mixin full-width {
+  width: 100%;
+  float: left;
+}
+
+/* Animation and keyframs */
+@mixin keyframes($animation-name) {
+  @keyframes #{$animation-name} {
+    @content;
+  }
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }
+  @-ms-keyframes #{$animation-name} {
+    @content;
+  }
+  @-o-keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+@mixin animation($str) {
+  animation: #{$str};
+  -webkit-animation: #{$str};
+  -moz-animation: #{$str};
+  -ms-animation: #{$str};
+  -o-animation: #{$str};
+}
+
+@mixin flex_div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+//Circular Animation
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin rotate($rotation) {
+  -webkit-transform: rotate($rotation);
+  -moz-transform: rotate($rotation);
+  -ms-transform: rotate($rotation);
+  -o-transform: rotate($rotation);
+  transform: rotate($rotation);
+}
+
+@mixin box-sizing($box-sizing) {
+  -webkit-box-sizing: $box-sizing;
+  -moz-box-sizing: $box-sizing;
+  box-sizing: $box-sizing;
+}
+@mixin transition-property($transition) {
+  -webkit-transition-property: $transition;
+  -moz-transition-property: $transition;
+  -o-transition-property: $transition;
+  transition-property: $transition;
+}
+
+@mixin transition-duration($duration) {
+  -webkit-transition-duration: $duration;
+  -moz-transition-duration: $duration;
+  -o-transition-duration: $duration;
+  transition-duration: $duration;
+}
+
+@mixin transition-timing-function($timing) {
+  -webkit-transition-timing-function: $timing;
+  -moz-transition-timing-function: $timing;
+  -o-transition-timing-function: $timing;
+  transition-timing-function: $timing;
+}

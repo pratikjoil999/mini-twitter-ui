@@ -1,0 +1,258 @@
+@import "../../../../variables.scss";
+@import "../../../../mixins.scss";
+
+.sampleTable table {
+  table-layout: fixed;
+  width: 100%;
+  font-size: 14px !important;
+}
+.sampleTable .border-none {
+  border: none;
+  width: 100%;
+}
+.sampleTable .table-drop-menu {
+  background-color: $white;
+  border: none;
+  color: $select-gray;
+  font-family: inherit;
+  font-size: inherit;
+}
+.sampleTable .border-data-none {
+  border: none;
+}
+#rt1 .thead-row-2 {
+  background-color: $white;
+  }
+
+@media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px) {
+  #rt1 {
+    display: block;
+    position: relative;
+    width: 100%;
+  }
+
+  .rt {
+    width: 100%;
+    font-size: 0.75em;
+    line-height: 1.25em;
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
+  #rt1 thead {
+    display: block;
+    float: left;
+  }
+  #rt1 thead tr {
+    display: block;
+  }
+
+  #rt1 th {
+    display: block;
+    width: auto;
+    font-size: 10px;
+    padding: 0.81rem 0.75rem;
+  }
+  .rt th {
+    text-align: left;
+    // background: #fff2b2;
+  }
+
+  #rt1 .thead-row-2 {
+    display: none !important;
+  }
+  #rt1 tbody {
+    display: block;
+    width: auto;
+    position: relative;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  #rt1 tbody tr {
+    display: inline-block;
+    vertical-align: top;
+  }
+  #rt1 td {
+    display: block;
+    padding: 0.88rem 0.75rem;
+    min-height: 1.25em;
+  }
+
+}
+.tableRow {
+  background-color: $table-blue;
+}
+
+.table-striped tbody tr {
+  &:nth-of-type(odd) {
+    background-color: $table-stripe !important;
+  }
+  &:nth-of-type(even) {
+    background-color: $white !important;
+  }
+
+  &:hover {
+    // cursor: pointer;
+    background-color: darken($table-blue, 5%) !important;
+    transition:background-color 300ms;
+  }
+  &:focus{
+    color: $white !important;
+    background-color: $theme-black !important;
+  }
+  &:active{
+    background-color: lighten($theme-black, 15%)  !important;
+    td{
+      color: white !important;
+    }
+
+
+  }
+}
+
+.word-break-keep {
+  word-break: keep-all !important;
+  font-size: 1.7vh;
+}
+
+h6 {
+  color: $theme-black;
+}
+
+.all-clear-box {
+  min-width: 2rem;
+  max-width: 5rem;
+  padding: 0.2rem;
+  background-color: $theme-black;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  color: $white;
+  &:hover,
+  :focus {
+    cursor: pointer;
+    background-color: darken($theme-black, 15%);
+    transition: background-color 600ms;
+  }
+  &:active{
+    transform: scale(.96);
+    transition:transform 200ms ;
+  }
+}
+
+td {
+  &:not(:first-child) {
+    color: $table-td-color;
+    &:hover {
+      cursor: pointer;
+      // background-color: darken($table-stripe, 20%);
+      // transition: background-color 600ms;
+    }
+  }
+  &:last-child {
+    text-align: center;
+  }
+}
+
+.triple-dot {
+  position: absolute;
+  transform: translate(-7px, -3px);
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.dropdown-menu {
+  min-width: 2rem !important;
+  a {
+    color: $theme-black;
+    &:active {
+      color: $theme-black;
+      background-color: $dd-white;
+    }
+  }
+}
+
+
+.dropdown-item {
+  padding: 0.5rem 1rem;
+  min-width:3rem;
+}
+
+
+
+
+.sampleTable .tweet-box{
+  width: 100%;
+  margin-top: 10px;
+  height: auto;
+}
+
+.sampleTable .tweet-dp{
+  display: flex;
+  //background-color: red;
+  justify-content: center;
+  height: auto;
+}
+.sampleTable .tweet-text{
+  background-color: blue;
+}
+
+.sampleTable .dp-letter{
+  height: 50px;
+  width: 50px;
+  border-radius: 50px;
+  border: solid 5px $twitter-blue;
+  justify-content: center;
+  text-align: center;
+}
+.sampleTable .dp{
+   font-weight: 700;
+ }
+
+ .sampleTable .tweet-text-div{
+   height: 20px;
+ }
+
+ .sampleTable .tweet-input{
+   height: 100%;
+   width: 100%;
+   resize: none;
+   padding: 20px;
+   padding-left: 10px;
+   box-sizing: border-box;
+   border: none;
+   overflow: hidden;
+   border-radius: 0;
+   margin: 0;
+   &::placeholder {
+    font-family: "Source Sans Pro";
+    color: #536471;
+    font-size: 20px;
+    font-weight: 600;
+  }
+ }
+
+
+ .sampleTable  .tweet-button-div{
+   width: 80% !important;
+  justify-content: left;
+  margin-left: 20px;
+  margin-top: -20px;
+  word-wrap    : break-word;
+overflow-wrap: break-word;
+display: contents;
+
+ }
+
+ .w80{
+  width: 95% !important;
+ }
+
+ .user_name{
+
+ }
+
+ .user_name_bold{
+   font-weight: 800;
+ }
