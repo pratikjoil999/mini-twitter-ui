@@ -1,68 +1,99 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Mini Twitter
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `npm start`
+This Project is a Simple ReactJS Project which demonstrates the following
+1. Creating a Component in React
+2. Making HTTP calls
+3. Communicating between parent and child component
+4. Using Bootstrap along with React
+5. Using Basic Routing in React
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Application functionality 
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+1. Ability to tweet
+2. Ability to search a person (using his handle to simplify things) and follow
+3. All tweets of the person one follows should come in feed
+4. Registration/Authentication mechanism
+5. Ability to search tweets
+6. Ability to hashtag tweets and search using that
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## UI Screenshots
 
-### `npm run build`
+![Screenshot 2022-05-10 at 2 27 18 AM](https://user-images.githubusercontent.com/16134007/167497268-05583dd5-ecdd-4520-9c4c-111f859ccade.png)
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![Screenshot 2022-05-09 at 9 57 28 PM](https://user-images.githubusercontent.com/16134007/167497688-0bb851a9-b791-47cc-8dd0-febfce9da45b.png)
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Live Application URL
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+[Mini Twittwr - Live DEMO](http://65.0.71.17:3000/)
 
-### `npm run eject`
+Click on the link to see the application
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Tools
+Key tools used in this React project are:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+| Tool             | Description   |
+| :-------------:|--------------|
+| [React](http://facebook.github.io/react/index.html) | A JavaScript library for building user interfaces |
+| [Bootstrap](http://getbootstrap.com/) | Build responsive, mobile-first projects on the web with the world's most popular front-end component library |
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Cloning and Running the Application in local
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Clone the project into local
 
-### Code Splitting
+```bash
+git clone https://github.com/pratikjoil999/mini-twitter-ui.git
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+Install all the npm packages. Go into the project folder and type the following command to install all npm packages
 
-### Analyzing the Bundle Size
+```bash
+npm install
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+In order to run the application Type the following command
 
-### Making a Progressive Web App
+```bash
+npm start
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+### The Application Runs on **localhost:3000**
 
-### Advanced Configuration
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+## Application design
 
-### Deployment
+#### Components
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+1. **Login And Register** Component : This Components are use to register and login in to mini twitter application
 
-### `npm run build` fails to minify
+2. **Dashboard** Component : This Component is basically home page of mini twitter , this page basically show all the tweets enter by user and tweet by person he/she follows. User can aslo search user follow them and able to tweet aslo. This Component is the Child Component of *Customers* Component.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+3. **Tweet Table** Component : This Component is use to disply all the user tweets. This Component is the Child Component of *Dashboard* Component.
+
+#### HTTP client
+
+**Fetch** is used to make HTTP Calls
+
+#### URL
+
+The application has just one url /customerlist which ties to *Customers* Component
+
+## Resources
+
+**create-react-app** : The following link has all the commands that can be used with create-react-app
+https://github.com/facebook/create-react-app
+
+**ReactJS** : Refer to https://reactjs.org/ to understand the concepts of ReactJS
+
+**React Bootstrap** : Refer to https://react-bootstrap.github.io/getting-started/introduction/ to understand how to use React Bootstrap
+
+
+## Author
+
+[Pratik Joil](https://www.linkedin.com/in/pratik-joil/)
+
