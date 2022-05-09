@@ -304,7 +304,7 @@ dataService("twitter_user/follow", followingArray).then((result) => {
                 <div class="tweet-dp col-2 d-block">
                   <div class="dp-letter mt-3">
                     <div class="dp mt-2">
-                      {tweet.first_name.substring(0,1)}
+                      {tweet.first_name.toUpperCase().substring(0,1)}
                     </div>
                   </div>
                 </div>
@@ -373,7 +373,7 @@ dataService("twitter_user/follow", followingArray).then((result) => {
               <div className="tweet-dp col-2 d-block">
                 <div className="dp-letter mt-3">
                   <div className="dp mt-2">
-                   
+                   {localStorage.getItem("first_name").toUpperCase().substring(0,1)}
                   </div>
                 </div>
               </div>

@@ -2,6 +2,7 @@ import React from "react";
 import "./sample-table.scss";
 import { Link } from "react-router-dom";
 import { getDataService } from "../../../../service/data.service";
+import Hashtags from 'react-highlight-hashtags';
 
 export default class SampleTable extends React.Component {
   constructor(props) {
@@ -35,7 +36,7 @@ export default class SampleTable extends React.Component {
                 <div class="tweet-dp col-2 d-block">
                   <div class="dp-letter mt-3">
                     <div class="dp mt-2">
-                      {tweet.userData.full_name.substring(0, 1)}
+                      {tweet.userData.full_name.toUpperCase().substring(0, 1)}
                     </div>
                   </div>
                 </div>
@@ -45,7 +46,7 @@ export default class SampleTable extends React.Component {
                   </div>
                   <div class="w80">
                     <div class="tweet-button-div col-12 p-0">
-                      {tweet.tweet}
+                    <Hashtags>{tweet.tweet}</Hashtags>
                     </div>
                   </div>
                 </div>

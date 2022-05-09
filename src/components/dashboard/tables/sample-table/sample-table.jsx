@@ -29,7 +29,7 @@ export default class SampleTable extends React.Component {
                 <div class="tweet-dp col-2 d-block">
                   <div class="dp-letter mt-3">
                     <div class="dp mt-2">
-                      {tweet.userData.full_name.substring(0, 1)}
+                      {tweet.userData.full_name.toUpperCase().substring(0, 1)}
                     </div>
                   </div>
                 </div>
