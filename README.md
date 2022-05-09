@@ -40,7 +40,7 @@ Key tools used in this React project are:
 | [React](http://facebook.github.io/react/index.html) | A JavaScript library for building user interfaces |
 | [Bootstrap](http://getbootstrap.com/) | Build responsive, mobile-first projects on the web with the world's most popular front-end component library |
 
-### project dependencies
+### Project dependencies
 
 just install [Node.js](https://nodejs.org/en/) in your system
 
