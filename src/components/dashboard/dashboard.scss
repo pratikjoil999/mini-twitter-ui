@@ -216,7 +216,6 @@ svg{
  }
 
  .search_container{
-   border: solid 1px black;
    max-height: 300px;
    overflow-y: scroll;
    position: fixed;
@@ -228,6 +227,7 @@ svg{
    margin-top: 70px;
    padding-top: 10px;
    padding-bottom: 10px;
+   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
  }
 
  .people_search{
