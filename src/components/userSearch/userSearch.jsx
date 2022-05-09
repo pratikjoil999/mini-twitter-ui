@@ -16,11 +16,10 @@ export default class UserSearch extends React.Component {
       followingData: [],
       tweetsData: [],
       tweet: "",
-      search:"",
-      searchByName:[],
-      searchByTweets:[],
+      search: "",
+      searchByName: [],
+      searchByTweets: [],
       showSearchList: false,
-
     };
   }
 
@@ -35,68 +34,67 @@ export default class UserSearch extends React.Component {
 
   handleChangeSearch = (event) => {
     this.setState({
-      showSearchList:true
-    })
+      showSearchList: true,
+    });
     const isCheckbox = event.target.type === "checkbox";
-    this.setState({
-      [event.target.name]: isCheckbox
-        ? event.target.checked
-        : event.target.value,
-    },()=>{
-      if(this.state.search!=="" && this.state.search.substring(0,1)=="#"){
-        console.log("testttt",this.state.search)
-        let followingArray = {
-          key: this.state.search,
-        };
-        dataService("tweets/tweetFind", followingArray).then((result) => {
-          let responseJSON = result;
-          if (result.api.statusCode == 200) {
-            console.log(responseJSON);
-            this.setState({
-              searchByTweets:responseJSON.response,
-            })
-          } else {
-            this.setState({
-              searchByName:[],
-              searchByTweets:[],
-            })
-            //this.error(result.api.messaage)
-          }
-        });
-    
-        }else if(this.state.search!=="" ){
-          getDataService("twitter_user/searchUser/" + this.state.search, this.state).then((result) => {
+    this.setState(
+      {
+        [event.target.name]: isCheckbox
+          ? event.target.checked
+          : event.target.value,
+      },
+      () => {
+        if (
+          this.state.search !== "" &&
+          this.state.search.substring(0, 1) == "#"
+        ) {
+          console.log("testttt", this.state.search);
+          let followingArray = {
+            key: this.state.search,
+          };
+          dataService("tweets/tweetFind", followingArray).then((result) => {
+            let responseJSON = result;
+            if (result.api.statusCode == 200) {
+              console.log(responseJSON);
+              this.setState({
+                searchByTweets: responseJSON.response,
+              });
+            } else {
+              this.setState({
+                searchByName: [],
+                searchByTweets: [],
+              });
+              //this.error(result.api.messaage)
+            }
+          });
+        } else if (this.state.search !== "") {
+          getDataService(
+            "twitter_user/searchUser/" + this.state.search,
+            this.state
+          ).then((result) => {
             let responseJSON = result;
             if (result.api.statusCode == 200) {
               console.log("oppp=>", responseJSON);
               this.setState({
-                searchByName:responseJSON.response,
-              })
+                searchByName: responseJSON.response,
+              });
             } else {
               //this.error(result.api.messaage);
               this.setState({
-                searchByName:[],
-                searchByTweets:[],
-              })
+                searchByName: [],
+                searchByTweets: [],
+              });
             }
           });
-        }
-        else{
+        } else {
           this.setState({
-            searchByName:[],
-            searchByTweets:[],
-            showSearchList:false
-          })
+            searchByName: [],
+            searchByTweets: [],
+            showSearchList: false,
+          });
         }
-    });
-
-
-    
-
-
-
-
-    
+      }
+    );
   };
 
   tweet = () => {
@@ -125,11 +123,11 @@ export default class UserSearch extends React.Component {
     await this.getUserData();
   };
 
-  onClickALert = () =>{
+  onClickALert = () => {
     this.setState({
-      showSearchList:false
-    })
-  }
+      showSearchList: false,
+    });
+  };
 
   arrayReverseObj = (obj) => {
     let newArray = [];
@@ -210,59 +208,57 @@ export default class UserSearch extends React.Component {
 
   render() {
     return (
-      <div className="dashboard" >
+      <div className="dashboard">
         <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/icon?family=Material+Icons"
         />
 
         <div className="row main-container ">
-        {this.state.showSearchList ?  
-          <div className="search_container">
-            <div className="hashtag">
-            { this.state.searchByTweets.map((tweet =>
-            <div class="tweet-box row ml-0 p-0 pb-3">
-                <div class="tweet-dp col-2 d-block">
-                  <div class="dp-letter mt-3">
-                    <div class="dp mt-2">
-                      {"S"}
+          {this.state.showSearchList ? (
+            <div className="search_container">
+              <div className="hashtag">
+                {this.state.searchByTweets.map((tweet) => (
+                  <div class="tweet-box row ml-0 p-0 pb-3">
+                    <div class="tweet-dp col-2 d-block">
+                      <div class="dp-letter mt-3">
+                        <div class="dp mt-2">{"S"}</div>
+                      </div>
+                    </div>
+                    <div class="col-10 p-0">
+                      <div class="tweet-text-div col-12 p-0 mt-3">
+                        <div className="user_name">{tweet.tweet}</div>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div class="col-10 p-0">
-                  <div class="tweet-text-div col-12 p-0 mt-3">
-                    <div className="user_name">{tweet.tweet}</div>
-                  </div>
-                </div>
-              </div> ))}
-            </div>
+                ))}
+              </div>
 
-            
-            <div className="people_search">
-            { this.state.searchByName.map((tweet =>
-            <div class="tweet-box row ml-0 p-0 pb-3">
-                <div class="tweet-dp col-2 d-block">
-                  <div class="dp-letter mt-3">
-                    <div class="dp mt-2">
-                      {"S"}
+              <div className="people_search">
+                {this.state.searchByName.map((tweet) => (
+                  <div class="tweet-box row ml-0 p-0 pb-3">
+                    <div class="tweet-dp col-2 d-block">
+                      <div class="dp-letter mt-3">
+                        <div class="dp mt-2">{"S"}</div>
+                      </div>
+                    </div>
+                    <div class="col-10 p-0">
+                      <div class="tweet-text-div col-12 p-0 mt-3">
+                        <div className="user_name">
+                          {tweet.first_name + "" + tweet.last_name}
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div class="col-10 p-0">
-                  <div class="tweet-text-div col-12 p-0 mt-3">
-                    <div className="user_name">{tweet.first_name + "" + tweet.last_name}</div>
-                  </div>
-                </div>
-              </div> ))}
-              
-
+                ))}
+              </div>
             </div>
-          
-          </div>
-           : null}
+          ) : null}
 
-
-          <div className="col-3 position-relative p-0" onClick={this.onClickALert}>
+          <div
+            className="col-3 position-relative p-0"
+            onClick={this.onClickALert}
+          >
             <header className="dashboard-header ">
               <div className="twitter_logo">
                 <svg
@@ -292,7 +288,10 @@ export default class UserSearch extends React.Component {
             </header>
           </div>
 
-          <div className="col-5 position-relative main-content p-0" onClick={this.onClickALert}>
+          <div
+            className="col-5 position-relative main-content p-0"
+            onClick={this.onClickALert}
+          >
             <header className="dashboard-header">
               <h5 className=" heading">Home</h5>
             </header>
@@ -333,9 +332,14 @@ export default class UserSearch extends React.Component {
 
           <div className="col-4 position-relative p-0">
             <header className="dashboard-header">
-              <input type="text" className="search_box" name="search"
-                    value={this.state.search}
-                    onChange={this.handleChangeSearch} placeholder="Search twitter"/>
+              <input
+                type="text"
+                className="search_box"
+                name="search"
+                value={this.state.search}
+                onChange={this.handleChangeSearch}
+                placeholder="Search twitter"
+              />
             </header>
           </div>
         </div>

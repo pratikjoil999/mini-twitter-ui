@@ -1,6 +1,6 @@
 import React from "react";
 import "./tweetSearch.scss";
-import {Redirect} from 'react-router-dom';
+import { Redirect } from "react-router-dom";
 import { Link } from "react-router-dom";
 import SampleTable from "./tables/sample-table/sample-table";
 import {
@@ -17,12 +17,11 @@ export default class TweetSearch extends React.Component {
       followingData: [],
       tweetsData: [],
       tweet: "",
-      search:localStorage.getItem("hashtag"),
-      searchByName:[],
-      searchByTweets:[],
+      search: localStorage.getItem("hashtag"),
+      searchByName: [],
+      searchByTweets: [],
       showSearchList: false,
-      redirectHashtagData : localStorage.getItem("hashtag")
-
+      redirectHashtagData: localStorage.getItem("hashtag"),
     };
   }
 
@@ -37,17 +36,19 @@ export default class TweetSearch extends React.Component {
 
   handleChangeSearch = (event) => {
     this.setState({
-      showSearchList:true
-    })
-    const isCheckbox = event.target.type === "checkbox";
-    this.setState({
-      [event.target.name]: isCheckbox
-        ? event.target.checked
-        : event.target.value,
-    },()=>{
-       this.getUserData();
+      showSearchList: true,
     });
-    
+    const isCheckbox = event.target.type === "checkbox";
+    this.setState(
+      {
+        [event.target.name]: isCheckbox
+          ? event.target.checked
+          : event.target.value,
+      },
+      () => {
+        this.getUserData();
+      }
+    );
   };
 
   tweet = () => {
@@ -76,11 +77,11 @@ export default class TweetSearch extends React.Component {
     await this.getUserData();
   };
 
-  onClickALert = () =>{
+  onClickALert = () => {
     this.setState({
-      showSearchList:false
-    })
-  }
+      showSearchList: false,
+    });
+  };
 
   arrayReverseObj = (obj) => {
     let newArray = [];
@@ -122,17 +123,18 @@ export default class TweetSearch extends React.Component {
               let responseJSON2 = result;
               if (result.api.statusCode == 200) {
                 console.log(responseJSON2);
-                this.findUserTweets(this.state.followingData,responseJSON2.response);
+                this.findUserTweets(
+                  this.state.followingData,
+                  responseJSON2.response
+                );
                 /* this.setState({
                   followingData:responseJSON.response,
                 }) */
               } else {
-                this.setState({
-                })
+                this.setState({});
                 //this.error(result.api.messaage)
               }
             });
-            
           }
         );
       } else {
@@ -141,9 +143,7 @@ export default class TweetSearch extends React.Component {
     });
   };
 
-  
-
-  findUserTweets = (data,data2) => {
+  findUserTweets = (data, data2) => {
     let followingArray = {
       multiTweetArray: data,
     };
@@ -177,35 +177,52 @@ export default class TweetSearch extends React.Component {
     });
   };
 
-  logout(){
+  logout() {
+    let id = localStorage.getItem("id");
+    let followingArray = {
+      _id: id,
+    };
+    dataService("twitter_user/logout", followingArray).then((result) => {
+      let responseJSON = result;
+      if (result.api.statusCode == 200) {
+        console.log(responseJSON);
+        localStorage.removeItem("X-Auth-Token");
+        localStorage.clear();
+      } else {
+      }
+    });
     localStorage.removeItem("X-Auth-Token");
     localStorage.clear();
-    //this.setState({redirect: true});
   }
 
   render() {
-
-    if(localStorage.getItem("X-Auth-Token") =="" || !localStorage.getItem("X-Auth-Token"))
-    {
-      return (<Redirect to={'/'} />)
+    if (
+      localStorage.getItem("X-Auth-Token") == "" ||
+      !localStorage.getItem("X-Auth-Token")
+    ) {
+      return <Redirect to={"/"} />;
     }
     return (
-      <div className="dashboard tweetSearch" >
+      <div className="dashboard tweetSearch">
         <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/icon?family=Material+Icons"
         />
 
         <div className="row main-container ">
-          <div className="col-3 position-relative p-0" onClick={this.onClickALert}>
-          <Link to="/dashboard" ><header className="dashboard-header ">
-              <div className="twitter_logo">
-                <svg
-                  viewBox="328 355 335 276"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M 630, 425
+          <div
+            className="col-3 position-relative p-0"
+            onClick={this.onClickALert}
+          >
+            <Link to="/dashboard">
+              <header className="dashboard-header ">
+                <div className="twitter_logo">
+                  <svg
+                    viewBox="328 355 335 276"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M 630, 425
     A 195, 195 0 0 1 331, 600
     A 142, 142 0 0 0 428, 570
     A  70,  70 0 0 1 370, 523
@@ -220,22 +237,35 @@ export default class TweetSearch extends React.Component {
     A 117, 117 0 0 0 662, 390
     A  65,  65 0 0 1 630, 425
     Z"
-                    style={{ fill: "#3BA9EE" }}
-                  />
-                </svg>
+                      style={{ fill: "#3BA9EE" }}
+                    />
+                  </svg>
+                </div>
+              </header>
+            </Link>
+            <div className="logout_container d-flex">
+              Log out{" "}
+              <div className="logout_username ml-2" onClick={this.logout}>
+                @{localStorage.getItem("user_name")}
               </div>
-            </header></Link>
-            <div className="logout_container d-flex">Log out <div className="logout_username ml-2" onClick={this.logout}>@{localStorage.getItem("user_name")}</div></div>
+            </div>
           </div>
 
-          <div className="col-5 position-relative main-content p-0" onClick={this.onClickALert}>
+          <div
+            className="col-5 position-relative main-content p-0"
+            onClick={this.onClickALert}
+          >
             <header className="dashboard-header">
               {/* <h5 className=" heading">{this.state.redirectHashtagData === "" ? "Search Tweets" : this.state.redirectHashtagData}</h5> */}
-              <input type="text" className="search_box" name="search"
-                    value={this.state.search}
-                    onChange={this.handleChangeSearch} placeholder="Search twitter"/>
+              <input
+                type="text"
+                className="search_box"
+                name="search"
+                value={this.state.search}
+                onChange={this.handleChangeSearch}
+                placeholder="Search twitter"
+              />
             </header>
-            
 
             <div className="tweet-container mt-5">
               <SampleTable data={this.state.tweetsData} />
@@ -243,17 +273,9 @@ export default class TweetSearch extends React.Component {
           </div>
 
           <div className="col-4 position-relative p-0">
-            <header className="dashboard-header">
-             {/*  <input type="text" className="search_box" name="search"
-                    value={this.state.search}
-                    onChange={this.handleChangeSearch} placeholder="Search twitter"/> */}
-            </header>
+            <header className="dashboard-header"></header>
           </div>
         </div>
-
-        {/* <div className="d-flex row width-table p-0">
-<div className="col-12 mt-3 formWidth p-0"><SampleTable /></div>
-</div> */}
       </div>
     );
   }
